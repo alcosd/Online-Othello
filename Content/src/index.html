@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel=”icon” type=”ico” href=”../resource/favicon.ico”>
+    <title>オンラインオセロ</title>
+</head>
+<body>
+
+    <div class="gameContainer">
+        <div class="gameTitle">
+            <h1>オンラインオセロ</h1>
+        </div>
+
+        <div class="formDisplay">
+            <div class="form_name">
+                <h2>ユーザー名を入力して下さい。</h2>
+                <input type="text" name="" id="name">
+                <button type="submit" id="btn_name">決定</button>
+            </div>    
+
+            <div class="form_room">
+                <h2></h2>
+                <details>
+                    <summary>部屋を作成する</summary>
+                    <div class="makeRoom">
+                        <input type="text" name="" id="newRoomId" placeholder="ルーム名">
+                        <input type="number" min="6" max="20" step="2" value="10" name="" placeholder="マス数" id="input_gridLength">
+                        <button id="btn_newRoomId" type="submit">送信</button>
+                        <p id="error"></p>
+                    </div>
+                </details>
+                <details>
+                    <summary>部屋に入室する</summary>
+                    <div class="enterRoom">
+                        <input type="text" name="" id="roomId" placeholder="ルーム名">
+                        <button id="btn_roomId" type="submit">送信</button>
+                        <p id="error2"></p>
+                    </div>
+                </details>
+                <details>
+                    <summary>AIと戦う</summary>
+                    <div class="VsAI">
+                        <input type="number" min="6" max="20" step="2" value="10" name="" placeholder="マス数" id="input_lenVsAI">
+                        <button id="btn_vsAI" type="submit">送信</button>
+                        <p id="error3"></p>
+                    </div>
+                </details>
+            </div>
+            <div class="loadingDisplay">
+                <div class="loader001"></div>
+            </div>
+        </div>
+
+        <div class="gameDisplay">
+            <div class="menu">
+                <ul>
+                    <li id="timer">0:00</li>
+                    <li id="btn_back">↩</li>
+                    <li id="btn_forth">↪</li>
+                    <li id="btn_defeated">投了</li>
+                    <li id="li_turn">あなた</li>
+                </ul>
+            </div>
+            <div class="spacer"></div>
+
+            <div class="display_turn">
+                相手のターン
+            </div>            
+        </div>
+
+        <div class="finishDisplay">
+            <div class="resultDetail">
+                <p>黒</p> <br>
+                <p>白</p> 
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="./js/object.js"></script>
+    <script src="./js/client.js"></script>
+    <script src="./js/sketch.js"></script>
+</body>
+</html>
